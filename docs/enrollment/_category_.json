@@ -1,0 +1,8 @@
+{
+  "label": "Enrollment",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "How to get enrolled into our services if devices weren't pre-enrolled"
+  }
+}
