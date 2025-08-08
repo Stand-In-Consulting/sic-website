@@ -30,6 +30,8 @@ export default function injectChatPlugin(context, options) {
                         innerHTML: `
               $(function() {
                 new ZammadChat({
+                  title: '<strong>Need Support?</strong>',
+                  background: 'rgb(206,32,40)',
                   fontSize: '12px',
                   chatId: 1
                 });
