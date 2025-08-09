@@ -10,33 +10,25 @@ export default function injectChatPlugin(context, options) {
             return {
                 // Injects tags before the closing </body> tag
                 postBodyTags: [
-                    // External script for jQuery
-                    {
-                        tagName: 'script',
-                        attributes: {
-                            src: 'https://code.jquery.com/jquery-3.6.0.min.js',
-                        },
-                    },
-                    // External script for the chat
-                    {
-                        tagName: 'script',
-                        attributes: {
-                            src: 'https://support.standinconsulting.com/assets/chat/chat.min.js',
-                        },
-                    },
-                    // Inline script to initialize the chat
+                    // 1. Freshdesk inline script to set up widget settings
                     {
                         tagName: 'script',
                         innerHTML: `
-              $(function() {
-                new ZammadChat({
-                  title: '<strong>Need Support?</strong>',
-                  background: 'rgb(206,32,40)',
-                  fontSize: '12px',
-                  chatId: 1
-                });
-              });
+              window.fwSettings={
+                'widget_id': 159000000382
+              };
+              !function(){if("function"!=typeof window.FreshworksWidget){var n=function(){n.q.push(arguments)};n.q=[],window.FreshworksWidget=n}}()
             `,
+                    },
+                    // 2. Freshdesk external script, loaded with async and defer
+                    {
+                        tagName: 'script',
+                        attributes: {
+                            type: 'text/javascript',
+                            src: 'https://widget.freshworks.com/widgets/159000000382.js',
+                            async: true,
+                            defer: true,
+                        },
                     },
                 ],
             };
