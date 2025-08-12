@@ -57,9 +57,11 @@ const config = {
       }),
     ],
   ],
-    plugins: [
-        './plugins/inject-chat-plugin.js',
-        // ... you can add other plugins here too
+    scripts: [
+        {
+            src: 'https://static.zdassets.com/ekr/snippet.js?key=21c54d48-e9b8-40f1-86a9-23a800c63623',
+            id: 'ze-snippet',
+        }
     ],
 
   themeConfig:
