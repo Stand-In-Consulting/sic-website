@@ -57,11 +57,8 @@ const config = {
       }),
     ],
   ],
-    scripts: [
-        {
-            src: 'https://static.zdassets.com/ekr/snippet.js?key=21c54d48-e9b8-40f1-86a9-23a800c63623',
-            id: 'ze-snippet',
-        }
+    plugins: [
+        './src/components/inject-widget-plugin.js',
     ],
 
   themeConfig:
